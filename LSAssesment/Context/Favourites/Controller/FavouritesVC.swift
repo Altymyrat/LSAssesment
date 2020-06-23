@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FavouritesVC.swift
 //  LSAssesment
 //
 //  Created by M.J. on 23.06.2020.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FavouritesVC: BaseVC {
 
+    override var isNavigationBarHidden: Bool{
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        pageTitle = "Favourites"
     }
 
-
 }
-

@@ -16,7 +16,7 @@ class FavouritesVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageTitle = "Favourites"
+        pageTitle = AppString.favouritesVCTitle
     }
 
 }

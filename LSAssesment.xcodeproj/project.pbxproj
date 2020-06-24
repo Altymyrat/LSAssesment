@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C50D53DE24A36A1B00ACE765 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53DD24A36A1B00ACE765 /* UIColor.swift */; };
 		C50D53E324A36C5B00ACE765 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53E224A36C5B00ACE765 /* AppConstant.swift */; };
+		C50D53E724A3B79A00ACE765 /* GameCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53E524A3B79A00ACE765 /* GameCustomCell.swift */; };
+		C50D53E824A3B79A00ACE765 /* GameCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C50D53E624A3B79A00ACE765 /* GameCustomCell.xib */; };
+		C50D53EA24A3BF3700ACE765 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53E924A3BF3700ACE765 /* UILabel.swift */; };
+		C50D53EF24A3C70700ACE765 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53EE24A3C70700ACE765 /* NetworkManager.swift */; };
 		C514039D24A25CFD000F4A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C514039C24A25CFD000F4A0E /* AppDelegate.swift */; };
 		C51403A624A25CFE000F4A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51403A524A25CFE000F4A0E /* Assets.xcassets */; };
 		C51403B424A25CFE000F4A0E /* LSAssesmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51403B324A25CFE000F4A0E /* LSAssesmentTests.swift */; };
@@ -46,6 +50,10 @@
 /* Begin PBXFileReference section */
 		C50D53DD24A36A1B00ACE765 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C50D53E224A36C5B00ACE765 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		C50D53E524A3B79A00ACE765 /* GameCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCustomCell.swift; sourceTree = "<group>"; };
+		C50D53E624A3B79A00ACE765 /* GameCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCustomCell.xib; sourceTree = "<group>"; };
+		C50D53E924A3BF3700ACE765 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		C50D53EE24A3C70700ACE765 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C514039924A25CFD000F4A0E /* LSAssesment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSAssesment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C514039C24A25CFD000F4A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C51403A524A25CFE000F4A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +109,44 @@
 				C51403EA24A28A91000F4A0E /* Coordinator.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C50D53E424A3B76C00ACE765 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50D53E524A3B79A00ACE765 /* GameCustomCell.swift */,
+				C50D53E624A3B79A00ACE765 /* GameCustomCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C50D53EB24A3C67C00ACE765 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C50D53EC24A3C68900ACE765 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C50D53ED24A3C69500ACE765 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C50D53F024A3C70B00ACE765 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C50D53EE24A3C70700ACE765 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C514039024A25CFC000F4A0E = {
@@ -168,6 +214,7 @@
 		C51403C424A2621B000F4A0E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C50D53F024A3C70B00ACE765 /* Network */,
 				C50D53E024A36BD100ACE765 /* Navigation */,
 				C51403EC24A293D3000F4A0E /* Controller */,
 			);
@@ -178,6 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				C51403D224A26603000F4A0E /* Controller */,
+				C50D53E424A3B76C00ACE765 /* View */,
+				C50D53EB24A3C67C00ACE765 /* Service */,
+				C50D53ED24A3C69500ACE765 /* Model */,
+				C50D53EC24A3C68900ACE765 /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -240,6 +291,7 @@
 				C51403E424A27828000F4A0E /* UIViewController.swift */,
 				C51403E824A283B8000F4A0E /* UINavigationController.swift */,
 				C50D53DD24A36A1B00ACE765 /* UIColor.swift */,
+				C50D53E924A3BF3700ACE765 /* UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50D53E824A3B79A00ACE765 /* GameCustomCell.xib in Resources */,
 				C51403D624A26617000F4A0E /* MainVC.xib in Resources */,
 				C51403A624A25CFE000F4A0E /* Assets.xcassets in Resources */,
 				C51403DF24A2753B000F4A0E /* FavouritesVC.xib in Resources */,
@@ -374,7 +427,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C51403C024A26109000F4A0E /* Application.swift in Sources */,
+				C50D53E724A3B79A00ACE765 /* GameCustomCell.swift in Sources */,
 				C51403CC24A265B8000F4A0E /* ControllerKeys.swift in Sources */,
+				C50D53EF24A3C70700ACE765 /* NetworkManager.swift in Sources */,
 				C51403EB24A28A91000F4A0E /* Coordinator.swift in Sources */,
 				C51403E524A27828000F4A0E /* UIViewController.swift in Sources */,
 				C51403C224A2612B000F4A0E /* main.swift in Sources */,
@@ -382,6 +437,7 @@
 				C50D53DE24A36A1B00ACE765 /* UIColor.swift in Sources */,
 				C51403CA24A26587000F4A0E /* ControllerFactory.swift in Sources */,
 				C514039D24A25CFD000F4A0E /* AppDelegate.swift in Sources */,
+				C50D53EA24A3BF3700ACE765 /* UILabel.swift in Sources */,
 				C50D53E324A36C5B00ACE765 /* AppConstant.swift in Sources */,
 				C51403DE24A2753B000F4A0E /* FavouritesVC.swift in Sources */,
 				C51403D524A26617000F4A0E /* MainVC.swift in Sources */,

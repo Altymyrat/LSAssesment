@@ -20,9 +20,14 @@ class SplashVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         delay(3) {
             Coordinator.shared.requestNavigation(.tabbar)
         }
+    }
+    
+    override func configureUI() {
+        super.configureUI()
+        self.view.backgroundColor = AppColor.splashBackground
+        imageView.image = UIImage(named: "leanScale")
     }
 }

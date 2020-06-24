@@ -31,12 +31,18 @@ class BaseVC: UIViewController {
         }
     }
     
+    private lazy var backgroundView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = AppColor.headerBackground
+        return view
+    }()
+    
     private lazy var labelPageTitle: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .boldSystemFont(ofSize: 34)
         label.textColor = .black
         label.textAlignment = .center
-        label.backgroundColor = .white
+        label.backgroundColor = AppColor.headerBackground
         return label
     }()
     
@@ -114,16 +120,23 @@ class BaseVC: UIViewController {
             self.navigationItem.titleView = nil
             self.navigationItem.leftBarButtonItems = self.leftBarButtonItems()
             self.navigationItem.rightBarButtonItems = self.rightBarButtonItems()
-        } else {
-            configureTitleLabel()
+        } else if !self.isKind(of: SplashVC.self){
+            configureHeaderView()
         }
         navigationController?.isNavigationBarHidden = isNavigationBarHidden
     }
     
-    private func configureTitleLabel() {
-        self.view.addSubview(labelPageTitle)
+    private func configureHeaderView() {
+        self.view.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        backgroundView.heightAnchor.constraint(equalToConstant: deviceHasTopNotch ? 130 : 100).isActive = true
+        
+        backgroundView.addSubview(labelPageTitle)
         labelPageTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelPageTitle.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        labelPageTitle.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        labelPageTitle.bottomAnchor.constraint(equalTo: self.backgroundView.bottomAnchor).isActive = true
+        labelPageTitle.leadingAnchor.constraint(equalTo: self.backgroundView.leadingAnchor, constant: 16).isActive = true
     }
 }

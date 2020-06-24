@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C50D53DE24A36A1B00ACE765 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53DD24A36A1B00ACE765 /* UIColor.swift */; };
+		C50D53E324A36C5B00ACE765 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D53E224A36C5B00ACE765 /* AppConstant.swift */; };
 		C514039D24A25CFD000F4A0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C514039C24A25CFD000F4A0E /* AppDelegate.swift */; };
 		C51403A624A25CFE000F4A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51403A524A25CFE000F4A0E /* Assets.xcassets */; };
 		C51403B424A25CFE000F4A0E /* LSAssesmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51403B324A25CFE000F4A0E /* LSAssesmentTests.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C50D53DD24A36A1B00ACE765 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C50D53E224A36C5B00ACE765 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		C514039924A25CFD000F4A0E /* LSAssesment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSAssesment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C514039C24A25CFD000F4A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C51403A524A25CFE000F4A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +92,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C50D53E024A36BD100ACE765 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C51403C924A26587000F4A0E /* ControllerFactory.swift */,
+				C51403CB24A265B8000F4A0E /* ControllerKeys.swift */,
+				C51403E624A27BD3000F4A0E /* NavigationManager.swift */,
+				C51403EA24A28A91000F4A0E /* Coordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		C514039024A25CFC000F4A0E = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +148,7 @@
 			children = (
 				C514039C24A25CFD000F4A0E /* AppDelegate.swift */,
 				C51403BF24A26109000F4A0E /* Application.swift */,
+				C50D53E224A36C5B00ACE765 /* AppConstant.swift */,
 				C51403C124A2612B000F4A0E /* main.swift */,
 			);
 			path = App;
@@ -152,11 +168,8 @@
 		C51403C424A2621B000F4A0E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C50D53E024A36BD100ACE765 /* Navigation */,
 				C51403EC24A293D3000F4A0E /* Controller */,
-				C51403C924A26587000F4A0E /* ControllerFactory.swift */,
-				C51403CB24A265B8000F4A0E /* ControllerKeys.swift */,
-				C51403E624A27BD3000F4A0E /* NavigationManager.swift */,
-				C51403EA24A28A91000F4A0E /* Coordinator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 			children = (
 				C51403E424A27828000F4A0E /* UIViewController.swift */,
 				C51403E824A283B8000F4A0E /* UINavigationController.swift */,
+				C50D53DD24A36A1B00ACE765 /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,8 +379,10 @@
 				C51403E524A27828000F4A0E /* UIViewController.swift in Sources */,
 				C51403C224A2612B000F4A0E /* main.swift in Sources */,
 				C51403D824A2734D000F4A0E /* TabBarController.swift in Sources */,
+				C50D53DE24A36A1B00ACE765 /* UIColor.swift in Sources */,
 				C51403CA24A26587000F4A0E /* ControllerFactory.swift in Sources */,
 				C514039D24A25CFD000F4A0E /* AppDelegate.swift in Sources */,
+				C50D53E324A36C5B00ACE765 /* AppConstant.swift in Sources */,
 				C51403DE24A2753B000F4A0E /* FavouritesVC.swift in Sources */,
 				C51403D524A26617000F4A0E /* MainVC.swift in Sources */,
 				C51403C824A2631B000F4A0E /* BaseVC.swift in Sources */,

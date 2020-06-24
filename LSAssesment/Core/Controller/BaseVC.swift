@@ -94,8 +94,9 @@ class BaseVC: UIViewController {
     
     func createBarButtonItem(_ type: NavigationBarButtonType) -> UIBarButtonItem {
         let buttonName = barButtonName(type)
-        let button: UIButton = UIButton(type: .custom)
+        let button: UIButton = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 50, height: navigationController?.navigationBar.frame.height ?? 50)
+        button.tintColor = AppColor.navbarColor
         button.setTitle(buttonName, for: .normal)
         button.addTarget(self, action: #selector(self.barButtonAction(_:)), for: .touchUpInside)
         button.contentHorizontalAlignment = .center

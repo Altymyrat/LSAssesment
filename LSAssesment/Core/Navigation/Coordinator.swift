@@ -21,7 +21,7 @@ class Coordinator {
     private(set) var previousControllerKey: ControllerKey?
     private(set) var currentControllerKey: ControllerKey? {
         willSet {
-            previousControllerKey = NavigationManager.shared.topViewController()?.controllerKey ?? currentControllerKey
+            previousControllerKey = NavigationManager.shared.topViewController()?.controllerKey
         }
     }
     
@@ -74,13 +74,13 @@ class Coordinator {
     // MARK: - Private functions:
     private func requestPresent(_ controllerKey: ControllerKey, animated: Bool = true,
                                 modalPresentationStyle: UIModalPresentationStyle = .fullScreen) {
-        NavigationManager.shared.presentController(controllerKey, modalPresentationStyle: modalPresentationStyle)
         self.currentControllerKey = controllerKey
+        NavigationManager.shared.presentController(controllerKey, modalPresentationStyle: modalPresentationStyle)
     }
     
     private func requestNavigation(_ controllerKey: ControllerKey, animated: Bool = true) {
-        NavigationManager.shared.navigateToController(controllerKey, animated: animated)
         self.currentControllerKey = controllerKey
+        NavigationManager.shared.navigateToController(controllerKey, animated: animated)
     }
     
     private func removeControllersFromArray(_ keys: [ControllerKey], controllers: [UIViewController]) -> [UIViewController] {

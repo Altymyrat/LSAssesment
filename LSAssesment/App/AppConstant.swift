@@ -23,6 +23,8 @@ struct AppString {
     //TODO: Localization string can be using here
     static let gameVCTitle: String = "Games"
     static let favouritesVCTitle: String = "Favourites"
+    static let notFoundFavourite: String = "There is no favourites found"
+    static let notGameSearched: String = "No game has been searched."
 }
 
 struct AppEndpoint {

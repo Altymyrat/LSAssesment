@@ -280,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				C51403DB24A27524000F4A0E /* Controller */,
+				C5C80F1924A4EC5A001CCA19 /* ViewModel */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -322,6 +323,13 @@
 				C51403D724A2734D000F4A0E /* TabBarController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C5C80F1924A4EC5A001CCA19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C5F2A36324A2A9AD0056D1EA /* DetailScreen */ = {

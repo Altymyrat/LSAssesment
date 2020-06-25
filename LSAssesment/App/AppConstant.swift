@@ -24,3 +24,7 @@ struct AppString {
     static let gameVCTitle: String = "Games"
     static let favouritesVCTitle: String = "Favourites"
 }
+
+struct AppEndpoint {
+    static let url = "https://api.rawg.io/api/games"
+}

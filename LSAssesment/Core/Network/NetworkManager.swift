@@ -20,16 +20,13 @@ class NetworkManager {
     private init() {}
     
     func fetchGameData(requestParameter: RequestModel, complationHandler: @escaping (ResponseModel?, String?)->()) {
-        
         guard var components = URLComponents(string: AppEndpoint.url) else {
             complationHandler(nil, NetworkError.url.rawValue)
             return
         }
-        
         components.queryItems = requestParameter.convertQueryParams.map({ (key, value) in
             URLQueryItem(name: key, value: value)
         })
-        
         components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         
         guard let url = components.url else {
@@ -54,6 +51,38 @@ class NetworkManager {
                 
                 do {
                     let model = try JSONDecoder().decode(ResponseModel.self, from: data)
+                    ActivityIndicator.shared.stopIndicator()
+                    complationHandler(model, nil)
+                } catch (let error) {
+                    ActivityIndicator.shared.stopIndicator()
+                    complationHandler(nil, error.localizedDescription)
+                }
+            }
+        }.resume()
+    }
+    
+    func fetchGameDetail(id: String, complationHandler: @escaping (DetailModel?, String?)->()) {
+        guard let url = URL(string: AppEndpoint.url + "/" + id) else {
+            complationHandler(nil, NetworkError.url.rawValue)
+            return
+        }
+        let request = URLRequest(url: url)
+        ActivityIndicator.shared.showIndicator()
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                ActivityIndicator.shared.stopIndicator()
+                complationHandler(nil, error.localizedDescription)
+                return
+            }
+            if self.isSuccessCode(response) {
+                guard let data = data else {
+                    ActivityIndicator.shared.stopIndicator()
+                    complationHandler(nil, NetworkError.data.rawValue)
+                    return
+                }
+                
+                do {
+                    let model = try JSONDecoder().decode(DetailModel.self, from: data)
                     ActivityIndicator.shared.stopIndicator()
                     complationHandler(model, nil)
                 } catch (let error) {

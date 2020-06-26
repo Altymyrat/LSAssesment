@@ -40,6 +40,8 @@ class GameCustomCell: UITableViewCell {
     
     private func updateUI() {
         guard let model = resultVM else { return }
+        let color = DataManager.shared.visitedID.contains(model.id) ? AppColor.selectedCellColor : UIColor.white
+        self.contentView.backgroundColor = color
         labelTitle.text = model.name
         labelMetacriticValue.text = String(describing: model.metacritic)
         labelGenre.text = model.genres

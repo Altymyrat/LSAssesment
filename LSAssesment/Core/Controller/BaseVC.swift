@@ -31,6 +31,12 @@ class BaseVC: UIViewController {
         }
     }
     
+    var isFavourite: Bool = false {
+        didSet {
+            configureNavigationBar()
+        }
+    }
+    
     private lazy var backgroundView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = AppColor.headerBackground
@@ -112,7 +118,7 @@ class BaseVC: UIViewController {
         case .back:
             return "< \(Coordinator.shared.previousVCTitle ?? "")"
         case .favourite:
-            return "Favourite"
+            return isFavourite ? AppString.barButtonFavourite : AppString.barButtonFavourited
         }
     }
     

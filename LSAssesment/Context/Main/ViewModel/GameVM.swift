@@ -8,15 +8,8 @@
 
 import Foundation
 
-protocol GameVMDelegate: class {
-    func failWith(error: String)
-    func succes()
-}
-
-class GameVM {
+class GameVM: BaseVM {
     private var responseModel: ResponseModel?
-    
-    weak var delegate: GameVMDelegate?
     
     func fetchGame(with text: String, nextPage: Bool = false) {
         var page: Int = 1
@@ -38,6 +31,13 @@ class GameVM {
     func getResult(at index: Int) -> ResultVM? {
         if let model = responseModel?.results {
             return ResultVM(model: model[index])
+        }
+        return nil
+    }
+    
+    func getResultModel(at: Int) -> Results? {
+        if let model = responseModel {
+            return model.results?[at]
         }
         return nil
     }

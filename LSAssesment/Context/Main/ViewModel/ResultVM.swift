@@ -15,6 +15,10 @@ class ResultVM {
         self.model = model
     }
     
+    var id: Int {
+        return model.id
+    }
+    
     var name: String {
         return model.name ?? ""
     }

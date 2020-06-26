@@ -9,12 +9,14 @@
 import Foundation
 
 struct Results: Codable {
+    let id: Int
     let name: String?
     let backgroundImage: String?
     let metacritic: Int?
     let genres: [Genres]?
 
     enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "name"
         case backgroundImage = "background_image"
         case metacritic = "metacritic"

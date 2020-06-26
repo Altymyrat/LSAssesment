@@ -16,6 +16,7 @@ struct AppColor {
     static let selectedCellColor: UIColor = .hexString("E0E0E0")
     static let metacriticColor: UIColor = .hexString("D80000")
     static let genreColor: UIColor = .hexString("8A8A8F")
+    static let detailCellColor: UIColor = .hexString("313131")
     
 }
 
@@ -23,6 +24,14 @@ struct AppString {
     //TODO: Localization string can be using here
     static let gameVCTitle: String = "Games"
     static let favouritesVCTitle: String = "Favourites"
+    static let searchPlaceHolder: String = "Search for the games"
+    static let gameDesc: String = "Game Description"
+    static let readMoreButton: String = "Read more..."
+    static let contractButton: String = "Read less"
+    static let visitReddit: String = "Visit reddit"
+    static let visitWebsite: String = "Visit website"
+    static let barButtonFavourite: String = "Favourite"
+    static let barButtonFavourited: String = "Favourited"
 }
 
 struct AppEndpoint {

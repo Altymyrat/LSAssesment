@@ -34,6 +34,8 @@ class MainVC: BaseVC {
         topConstraintSearchBar.constant =  deviceHasTopNotch ? 130 : 100
         viewModel.delegate = self
         searchBar.delegate = self
+        searchBar.placeholder = AppString.searchPlaceHolder
+        searchBar.showsCancelButton = true
     }
     
     // MARK: - Private func
@@ -60,6 +62,14 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         cell.resultVM = viewModel.getResult(at: indexPath.row)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let id = viewModel.getResult(at: indexPath.row)?.id {
+            DataManager.shared.gameID = id
+            DataManager.shared.currentGamesData = viewModel.getResultModel(at: indexPath.row)
+            Coordinator.shared.requestNavigation(.detailScreen)
+        }
+    }
 }
 
 // MARK: - SearchBarDelegate
@@ -76,7 +86,7 @@ extension MainVC: UISearchBarDelegate {
 }
 
 // MARK: - ViewModel Delegate
-extension MainVC: GameVMDelegate {
+extension MainVC: ViewModelDelegate {
     func failWith(error: String) {
         print("error", error)
     }

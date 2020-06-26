@@ -15,6 +15,24 @@ class FavouritesVC: BaseVC {
     @IBOutlet private weak var topConstraintTableview: NSLayoutConstraint!
     @IBOutlet private weak var topConstraintLabel: NSLayoutConstraint!
     
+    // MARK: - Private parameters:
+    private var favouriteVM: [ResultVM] = [] {
+        didSet{
+            updateUI()
+            favouriteCount = favouriteVM.count
+        }
+    }
+    
+    private var favouriteCount: Int = 0 {
+        didSet {
+            if favouriteCount != 0, favouriteCount > 0 {
+                pageTitle = AppString.favouritesVCTitle + "(\(favouriteCount))"
+            } else {
+                pageTitle = AppString.favouritesVCTitle
+            }
+        }
+    }
+    
     // MARK: - Override func:
     override var isNavigationBarHidden: Bool{
         return true
@@ -23,6 +41,11 @@ class FavouritesVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.favouriteVM = DataManager.shared.getFavouriteGames()
     }
 
     override func configureUI() {
@@ -50,17 +73,44 @@ class FavouritesVC: BaseVC {
     }
     
     private func updateUI() {
-        
+        if !favouriteVM.isEmpty {
+            tableView.isHidden = false
+            labelDesc.isHidden = true
+            tableView.reloadData()
+        } else {
+            tableView.isHidden = true
+            labelDesc.isHidden = false
+            labelDesc.text = AppString.notFoundFavourite
+        }
     }
 }
 
 // MARK: - TableViewDelegate, TableViewDataSource
 extension FavouritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return favouriteVM.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: GameCustomCell.identifier, for: indexPath) as! GameCustomCell
+        cell.resultVM = self.favouriteVM[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            
+            let alert = UIAlertController(title: AppString.alertTitle, message: AppString.alertDesc, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: AppString.alerYesButton, style: UIAlertAction.Style.default, handler: { action in
+                DataManager.shared.deleteGameFromFavourite(with: indexPath.row)
+                self.favouriteVM = DataManager.shared.getFavouriteGames()
+            }))
+            alert.addAction(UIAlertAction(title: AppString.alertCancelButton, style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

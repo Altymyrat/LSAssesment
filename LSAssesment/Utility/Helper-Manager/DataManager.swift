@@ -74,6 +74,10 @@ class DataManager {
         return isSaved
     }
     
+    func deleteGameFromFavourite(with index: Int) {
+        favouriteGames.remove(at: index)
+    }
+    
     /// For use in FavouriteVC disoplay favourite games
     func getFavouriteGames() -> [ResultVM] {
         var result: [ResultVM] = []

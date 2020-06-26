@@ -17,6 +17,7 @@ class DetailDescCell: UITableViewCell {
     @IBOutlet private weak var labelTitle: UILabel!
     @IBOutlet private weak var labelDescription: UILabel!
     @IBOutlet private weak var buttonReadMore: UIButton!
+    @IBOutlet private weak var seperatorView: UIView!
     
     // MARK: - Parameters
     static let identifier = "DetailDescCell"
@@ -45,6 +46,7 @@ class DetailDescCell: UITableViewCell {
         labelDescription.arrangeLabelAttributes(.left, font: .systemFont(ofSize: 10), textColor: AppColor.detailCellColor, 4, "")
         buttonReadMore.setTitle(AppString.readMoreButton, for: .normal)
         buttonReadMore.tintColor = AppColor.detailCellColor
+        seperatorView.backgroundColor = AppColor.headerBackground
     }
     
     

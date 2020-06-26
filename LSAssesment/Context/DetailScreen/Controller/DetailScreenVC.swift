@@ -43,6 +43,7 @@ class DetailScreenVC: BaseVC {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: DetailDescCell.identifier, bundle: nil),
                            forCellReuseIdentifier:  DetailDescCell.identifier)
@@ -77,6 +78,10 @@ extension DetailScreenVC: UITableViewDelegate, UITableViewDataSource {
             default:
                 break
             }
+            let seperator = UIView(frame: CGRect(x: 16, y: cell.frame.size.height - 1, width: UIScreen.main.bounds.width - 32, height: 1))
+            seperator.backgroundColor = AppColor.headerBackground
+            cell.addSubview(seperator)
+            cell.selectionStyle = .none
             return cell
         }
     }

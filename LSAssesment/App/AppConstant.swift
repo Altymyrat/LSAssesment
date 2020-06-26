@@ -34,6 +34,10 @@ struct AppString {
     static let visitWebsite: String = "Visit website"
     static let barButtonFavourite: String = "Favourite"
     static let barButtonFavourited: String = "Favourited"
+    static let alertTitle: String = "Warning"
+    static let alertDesc: String = "Would you like to delete the game from Favourites?"
+    static let alerYesButton: String = "Yes"
+    static let alertCancelButton: String = "Cancel"
 }
 
 struct AppEndpoint {

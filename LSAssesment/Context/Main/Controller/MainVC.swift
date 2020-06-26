@@ -13,6 +13,8 @@ class MainVC: BaseVC {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var topConstraintSearchBar: NSLayoutConstraint!
+    @IBOutlet weak var labelDesc: UILabel!
+    @IBOutlet weak var topConstraintLabel: NSLayoutConstraint!
     
     // MARK: - Private parameters:
     private var viewModel: GameVM = GameVM()
@@ -32,10 +34,12 @@ class MainVC: BaseVC {
         super.configureUI()
         pageTitle = AppString.gameVCTitle
         topConstraintSearchBar.constant =  deviceHasTopNotch ? 130 : 100
+        topConstraintLabel.constant = deviceHasTopNotch ? 150 : 120
         viewModel.delegate = self
         searchBar.delegate = self
         searchBar.placeholder = AppString.searchPlaceHolder
-        searchBar.showsCancelButton = true
+        labelDesc.arrangeLabelAttributes(.center, font: .systemFont(ofSize: 18), textColor: .black, 0, AppString.notGameSearched)
+        labelDesc.isHidden = true
     }
     
     // MARK: - Private func
@@ -75,6 +79,9 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
 // MARK: - SearchBarDelegate
 extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.showsCancelButton = true
+        labelDesc.isHidden = true
+        tableView.isHidden = false
         let searchString = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard searchString.count > 3 else { return }
         viewModel.fetchGame(with: searchString)
@@ -82,6 +89,9 @@ extension MainVC: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        searchBar.showsCancelButton = false
+        labelDesc.isHidden = false
+        tableView.isHidden = true
     }
 }
 
